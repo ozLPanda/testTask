@@ -119,6 +119,7 @@ export default {
 
 #just {
     font-weight: 200;
+    opacity: .5;
 }
 
 #free {
@@ -219,6 +220,7 @@ export default {
 }
 
 .menu-row {
+    font-size: 11pt;
     color: white;
     display: flex;
     gap: 15px;
