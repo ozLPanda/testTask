@@ -13,17 +13,19 @@
                 <slot name="options"></slot>
             </div>
         </div>
-        <slot name="body-content"></slot>
+        <div class="content-body">
+            <slot name="body-content"></slot>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "LayoutBaseContentElement"
+    name: "LayoutBaseContentElement",
 }
 </script>
 
-<style scoped>
+<style>
 .content-block{
     width: 100%;
     display: flex;
@@ -41,5 +43,16 @@ export default {
 
 .desc-content{
     opacity: .5;
+}
+
+.content-body{
+    background-color: white;
+}
+
+.header-body-content{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 </style>

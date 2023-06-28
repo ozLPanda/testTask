@@ -1,6 +1,8 @@
 <template>
-    <div class="block-content">
-        <slot name="content"></slot>
+    <div class="d-center">
+        <div class="block-content">
+            <slot name="content"></slot>
+        </div>
     </div>
 </template>
 
@@ -11,13 +13,21 @@ export default {
 </script>
 
 <style scoped>
-.block-content{
-    grid-column: 2/2;
-    grid-row: 2/2;
-    background-color: var(--base-background-content);
-    padding: 30px;
+.d-center{
     display: flex;
     justify-content: center;
-    gap: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--base-background-content);
+}
+
+.block-content{
+    width: 90%;
+    grid-column: 2/2;
+    grid-row: 2/2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 </style>

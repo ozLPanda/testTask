@@ -30,11 +30,13 @@
         </div>
         <LayoutBaseBlockContent>
             <template v-slot:content>
-                <LayoutBaseContentElement>
-                    <template v-slot:title>Hi Fillip</template>
-                    <template v-slot:desc>Checkout your latest projects and their progress.</template>
-                    <template v-slot:body-content>Test123</template>
-                </LayoutBaseContentElement>
+                <WayvyLines
+                    :date="week"
+                    :lines="lines"
+                />
+                <CrunchSomeNumbers
+
+                />
             </template>
         </LayoutBaseBlockContent>
     </div>
@@ -42,11 +44,13 @@
 
 <script>
 import LayoutBaseBlockContent from "../layouts/LayoutBaseBlockContent.vue";
-import LayoutBaseContentElement from "../layouts/LayoutBaseContentElement.vue";
+import moment from 'moment';
+import WayvyLines from "../components/WayvyLines.vue";
+import CrunchSomeNumbers from "../components/CrunchSomeNumbers.vue";
 
 export default {
     name: "FormMain",
-    components: {LayoutBaseContentElement, LayoutBaseBlockContent},
+    components: {CrunchSomeNumbers, WayvyLines, LayoutBaseBlockContent},
     data() {
         return {
             defIconRoute: "/assets/image/",
@@ -70,6 +74,36 @@ export default {
             return id == this.activeRow ? true : false
         },
     },
+    computed: {
+        week(){
+            let t = [];
+            for(let i = 1; i <= 7; i++){
+                t.push(moment().day(i).format("DD-MM"));
+            }
+            return t;
+        },
+        lines() {
+            return [
+                {
+                    label: '',
+                    data: [40, 48, 25, 48, 25, 48, 25, 48],
+                    backgroundColor: ['rgba(245,0,87,0.6)'],
+                    borderColor: ['#F50057'],
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4
+                },
+                {
+                    label: '',
+                    backgroundColor: ['rgba(156,39,176,0.6)'],
+                    borderColor: ['#9C27B0'],
+                    data: [52, 40, 50, 42, 55, 42, 50, 42, 50],
+                    tension: 0.4,
+                    fill: true,
+                }
+            ]
+        },
+    }
 }
 </script>
 
