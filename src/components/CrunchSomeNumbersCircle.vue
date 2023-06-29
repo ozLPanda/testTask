@@ -73,7 +73,7 @@ export default {
     data() {
         return {
             customCss: {
-                backgroundColor: 'none',
+                background: 'none',
             }
         }
     },
@@ -95,7 +95,7 @@ export default {
     grid-template-rows: 1fr 1fr;
 }
 
-.t-content .desc-content{
+.container-cards .desc-content{
     font-size: 10pt;
 }
 
@@ -121,20 +121,29 @@ export default {
 }
 
 .card-block {
-
+    width: 100%;
+    background-color: white;
 }
 
 .card-title {
+    padding: 15px;
+}
 
+.card-title-image{
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-block: 15px;
 }
 
 .profile-block {
-
+    padding-bottom: 10px;
 }
 
 .view-avatar{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-image: url("/assets/image/testAvatar.jpg");
     background-position: center;
