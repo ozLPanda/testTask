@@ -12,7 +12,8 @@
                         <div>{{ item.title }}</div>
                         <div class="desc-content">{{ item.desc }}</div>
                     </div>
-                    <div>{{ item.lastTime }}</div>
+                    <div class="last-time">{{ item.lastTime }}</div>
+                    <span style="color: #BCC7D3;">|</span>
                     <div class="block-info">
                         <div>
                             <img src="/assets/image/clock.png">
@@ -118,7 +119,7 @@ export default {
     padding: 10px;
     background-color: white;
     display: grid;
-    grid-template-columns: 60px 240pt 200pt 150pt auto;
+    grid-template-columns: 60px .7fr .7fr 2pt .7fr minmax(150px, auto);
     align-items: center;
 }
 
@@ -126,12 +127,17 @@ export default {
     padding-inline: 15px 10px;
 }
 
+.last-time{
+    font-size: 11pt;
+}
+
 .block-info {
     display: flex;
     gap: 20px;
     align-items: center;
-    padding-inline: 20px 20px;
-    border-left: 1px solid #BCC7D3;
+    justify-content: center;
+    padding-inline: 45px 10px;
+    //border-left: 1px solid #BCC7D3;
 }
 
 .block-info > div {

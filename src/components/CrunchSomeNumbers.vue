@@ -5,10 +5,7 @@
         <template v-slot:title>Crunch some Numbers</template>
         <template v-slot:desc>See how your projects are progressing via the new statistics engine.</template>
         <template v-slot:options>
-            <div>Timeline:</div>
-            <select>
-                <option>This week</option>
-            </select>
+            <time-line/>
         </template>
         <template v-slot:body-content>
             <div class="t-content">
@@ -52,13 +49,14 @@
 </template>
 
 <script>
-import LayoutBaseContentElement from "../layouts/LayoutBaseContentElement.vue";
+import LayoutBaseContentElement from "@/layouts/LayoutBaseContentElement.vue";
 import DailyProgress from "./DailyProgress.vue";
 import Chart from "chart.js/auto";
+import TimeLine from "@/components/TimeLine.vue";
 
 export default {
     name: "CrunchSomeNumbers",
-    components: {DailyProgress, LayoutBaseContentElement},
+    components: {TimeLine, DailyProgress, LayoutBaseContentElement},
     data() {
         return {
             chart: undefined,
