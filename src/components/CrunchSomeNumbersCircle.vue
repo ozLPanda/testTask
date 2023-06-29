@@ -14,7 +14,9 @@
                         <div>Client Hours</div>
                         <div class="desc-content">Working Hours</div>
                     </div>
-
+                    <div class="block-chart">
+                        <canvas name="chart1"></canvas>
+                    </div>
                 </div>
                 <div class="card-block">
                     <div class="card-title-image">
@@ -66,6 +68,7 @@
 <script>
 import LayoutBaseContentElement from "@/layouts/LayoutBaseContentElement.vue";
 import TimeLine from "@/components/TimeLine.vue";
+import Chart from "chart.js/auto";
 
 export default {
     name: "CrunchSomeNumbersCircle",
@@ -74,11 +77,30 @@ export default {
         return {
             customCss: {
                 background: 'none',
-            }
+            },
+            chart1: undefined,
+            chart2: undefined,
         }
     },
     mounted() {
-
+        let ctx1 = document.querySelector('canvas[name="chart1"]').getContext('2d');
+        this.chart1 = new Chart(ctx1, {
+            type: 'doughnut',
+            label: '',
+            data:{
+                datasets: [{
+                    label: '',
+                    data: [37.45, 16.22, 3.14],
+                    backgroundColor: [
+                        '#f40056',
+                        '#ff3f80',
+                        '#ff3f80',
+                    ],
+                    // borderWidth: '250px',
+                    hoverOffset: 5
+                }]
+            }
+        })
     }
 }
 </script>
