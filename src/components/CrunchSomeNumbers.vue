@@ -1,5 +1,7 @@
 <template>
-    <LayoutBaseContentElement>
+    <LayoutBaseContentElement
+        :css="customCss"
+    >
         <template v-slot:title>Crunch some Numbers</template>
         <template v-slot:desc>See how your projects are progressing via the new statistics engine.</template>
         <template v-slot:options>
@@ -27,21 +29,21 @@
                             <div>1, 204</div>
                             <div>Conversations</div>
                         </div>
-                        <div>
+                        <div id="block-mini-diagram">
                             <canvas name="chart"></canvas>
                         </div>
                     </div>
                     <div class="d-col-elem">
                         <div class="elem-title">
-                            <div>7</div>
+                            <div>{{ countPeople }}</div>
                             <div>People</div>
                         </div>
                         <div class="circles-block">
-                            <div v-for="item in 7"></div>
+                            <div v-for="item in countPeople"></div>
                         </div>
                     </div>
                 </div>
-                <div style="width: 100%;">
+                <div class="block-diagram">
                     <DailyProgress/>
                 </div>
             </div>
@@ -60,6 +62,10 @@ export default {
     data() {
         return {
             chart: undefined,
+            countPeople: 7,
+            customCss: {
+                background: 'none'
+            }
         }
     },
     computed: {
@@ -74,7 +80,7 @@ export default {
             }, 0)
         },
         date() {
-            return this.lines.map(item=>{
+            return this.lines.map(item => {
                 return [...item.data]
             })
         },
@@ -95,32 +101,43 @@ export default {
         this.chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: [...this.date],
+                labels: [1,2,3,4,5,6,7,8,9,10,11,12],
                 datasets: [
-                    ...this.lines
+                    {
+                        label: '',
+                        data: [1100, 1000, 980, 900, 1050, 980, 1030, 1000, 1204, 1180, 1100, 1050],
+                        borderColor: ['#F50057'],
+                        borderWidth: 2,
+                        tension: 0
+                    },
                 ],
             },
             options: {
                 scales: {
-                    // y: {
-                    //     ticks: {
-                    //         display: false
-                    //     },
-                    //     grid: {
-                    //         display: false
-                    //     }
-                    // },
-                    // x: {
-                    //     ticks: {
-                    //         display: false
-                    //     },
-                    //     grid: {
-                    //         display: false
-                    //     }
-                    // }
+                    y: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        },
+                    },
+                    x: {
+                        ticks: {
+                            display: false
+                        },
+                        grid: {
+                            display: false
+                        },
+                    },
+                },
+                elements: {
+                    point:{
+                        radius: 0
+                    }
                 },
                 layout: {
-                    padding: 20
+                    // padding: 20
                 },
             }
         })
@@ -129,26 +146,49 @@ export default {
 </script>
 
 <style scoped>
-.t-content {
+#block-mini-diagram {
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+#block-mini-diagram canvas{
+    width: 100%;
+    height: 100%;
+}
+
+.t-content {
+    display: grid;
+    grid-template-columns: 380px auto;
+    grid-gap: 30px;
+}
+
+.t-content > div{
+    background-color: white;
 }
 
 .d-col {
-    width: max-content;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+.block-diagram {
+    grid-column: 2/2;
+
 }
 
 .d-col-elem {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
+    overflow: hidden;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 120pt 150pt;
+    grid-template-rows: 170px;
+    padding: 10px 0px;
     border-block: 1px solid rgba(188, 199, 211, 0.4);
 }
 
 .elem-title {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -161,6 +201,8 @@ export default {
 
 .cylinders-block {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
     width: 100%;
     height: 100%;
@@ -168,8 +210,7 @@ export default {
 
 .cylinders-block div {
     width: 40px;
-    min-height: 130px;
-    height: 100%;
+    height: 130px;
 }
 
 .cylinders-block div:nth-child(1) {
@@ -188,6 +229,8 @@ export default {
 .circles-block {
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
+    gap: 10px;
 }
 
 .circles-block div {

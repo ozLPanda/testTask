@@ -75,13 +75,6 @@ export default {
 </script>
 
 <style scoped>
-#week-control{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-inline: 5px 10px;
-}
-
 canvas {
     width: 100%;
     max-height: 500px !important;

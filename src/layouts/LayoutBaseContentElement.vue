@@ -13,7 +13,7 @@
                 <slot name="options"></slot>
             </div>
         </div>
-        <div class="content-body">
+        <div :style="[css]" class="content-body">
             <slot name="body-content"></slot>
         </div>
     </div>
@@ -22,37 +22,15 @@
 <script>
 export default {
     name: "LayoutBaseContentElement",
+    props:{
+        css:{
+            type: Object,
+            default: undefined,
+        }
+    }
 }
 </script>
 
-<style>
-.content-block{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+<style scoped>
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #BCC7D3;
-}
-
-.desc-content{
-    opacity: .5;
-}
-
-.content-body{
-    background-color: white;
-}
-
-.header-body-content{
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 </style>

@@ -34,9 +34,8 @@
                     :date="week"
                     :lines="lines"
                 />
-                <CrunchSomeNumbers
-
-                />
+                <CrunchSomeNumbers/>
+                <CurrentProgress/>
             </template>
         </LayoutBaseBlockContent>
     </div>
@@ -47,10 +46,11 @@ import LayoutBaseBlockContent from "../layouts/LayoutBaseBlockContent.vue";
 import moment from 'moment';
 import WayvyLines from "../components/WayvyLines.vue";
 import CrunchSomeNumbers from "../components/CrunchSomeNumbers.vue";
+import CurrentProgress from "@/components/CurrentProgress.vue";
 
 export default {
     name: "FormMain",
-    components: {CrunchSomeNumbers, WayvyLines, LayoutBaseBlockContent},
+    components: {CurrentProgress, CrunchSomeNumbers, WayvyLines, LayoutBaseBlockContent},
     data() {
         return {
             defIconRoute: "/assets/image/",
@@ -78,7 +78,7 @@ export default {
         week(){
             let t = [];
             for(let i = 1; i <= 7; i++){
-                t.push(moment().day(i).format("DD-MM"));
+                t.push(moment().day(i).format("DD.MM"));
             }
             return t;
         },
@@ -202,7 +202,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 .t-main-block {

@@ -5,12 +5,12 @@
     --base-background-content: #F5F5F5;
     --background-logo: #1E88E5;
     --background-header: #E0E0E0;
-    font-family: 'Open Sans', sans-serif;
 }
 
 body{
     padding: 0px;
     margin: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #app{
