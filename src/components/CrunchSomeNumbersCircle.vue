@@ -161,10 +161,11 @@ export default {
                 },
                 scales: {
                     x: {
-                        beginAtZero: true
+                        beginAtZero: true,
                     },
                     y: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        suggestedMax: 30
                     },
                 },
             }
