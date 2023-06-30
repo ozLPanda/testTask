@@ -119,7 +119,7 @@ export default {
     padding: 10px;
     background-color: white;
     display: grid;
-    grid-template-columns: 60px .7fr .7fr 2pt .7fr minmax(150px, auto);
+    grid-template-columns: 60px .7fr .7fr 2pt .7fr minmax(150px, .8fr);
     align-items: center;
 }
 

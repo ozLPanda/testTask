@@ -45,3 +45,7 @@ body{
 .w-max-content{
     width: max-content;
 }
+
+.block-content .content-block:nth-last-child(1){
+    padding-bottom: 150px;
+}

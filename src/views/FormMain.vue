@@ -37,6 +37,7 @@
                 <CrunchSomeNumbers/>
                 <CurrentProgress/>
                 <CrunchSomeNumbersCircle/>
+<!--                <EmptyElement/>-->
             </template>
         </LayoutBaseBlockContent>
     </div>
@@ -49,10 +50,13 @@ import WayvyLines from "../components/WayvyLines.vue";
 import CrunchSomeNumbers from "../components/CrunchSomeNumbers.vue";
 import CurrentProgress from "@/components/CurrentProgress.vue";
 import CrunchSomeNumbersCircle from "@/components/CrunchSomeNumbersCircle.vue";
+import EmptyElement from "@/components/EmptyElement.vue";
 
 export default {
     name: "FormMain",
-    components: {CrunchSomeNumbersCircle, CurrentProgress, CrunchSomeNumbers, WayvyLines, LayoutBaseBlockContent},
+    components: {
+        EmptyElement,
+        CrunchSomeNumbersCircle, CurrentProgress, CrunchSomeNumbers, WayvyLines, LayoutBaseBlockContent},
     data() {
         return {
             defIconRoute: "/assets/image/",

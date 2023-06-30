@@ -5,7 +5,10 @@
         <template v-slot:title>Crunch some Numbers</template>
         <template v-slot:desc>See how your projects are progressing via the new statistics engine.</template>
         <template v-slot:options>
-            <time-line/>
+            <div>Timeline:</div>
+            <select>
+                <option value="1">7 days</option>
+            </select>
         </template>
         <template v-slot:body-content>
             <div class="t-content">
@@ -52,11 +55,10 @@
 import LayoutBaseContentElement from "@/layouts/LayoutBaseContentElement.vue";
 import DailyProgress from "./DailyProgress.vue";
 import Chart from "chart.js/auto";
-import TimeLine from "@/components/TimeLine.vue";
 
 export default {
     name: "CrunchSomeNumbers",
-    components: {TimeLine, DailyProgress, LayoutBaseContentElement},
+    components: {DailyProgress, LayoutBaseContentElement},
     data() {
         return {
             chart: undefined,
@@ -167,12 +169,11 @@ export default {
 
 .d-col {
     display: grid;
-    grid-template-rows: repeat(auto-fit, 1fr);
 }
 
 .block-diagram {
     grid-column: 2/2;
-
+    width: 100%;
 }
 
 .d-col-elem {
@@ -212,16 +213,15 @@ export default {
 }
 
 .cylinders-block div:nth-child(1) {
-    /*background: rgb(30,136,229);*/
-    background: linear-gradient(180deg, rgba(30, 136, 229, 0.2) 20%, rgba(30, 136, 229, 0.25) 20%, #1E88E5 60%);
+    background: linear-gradient(180deg, rgba(129,194,253,1) 0%, rgba(129,194,253,1) 20%, rgba(73,167,250,1) 20%, rgba(73,167,250,1) 45%, rgba(13,129,232,1) 45%, rgba(13,129,232,1) 100%);
 }
 
 .cylinders-block div:nth-child(2) {
-    background-color: #51c814;
+    background: linear-gradient(180deg, rgba(163,242,196,1) 0%, rgba(163,242,196,1) 20%, rgba(93,244,187,1) 20%, rgba(93,244,187,1) 60%, rgba(35,242,139,1) 60%, rgba(35,242,139,1) 100%);
 }
 
 .cylinders-block div:nth-child(3) {
-    background-color: #8614c8;
+    background: linear-gradient(180deg, rgba(216,175,239,1) 0%, rgba(216,175,239,1) 20%, rgba(199,121,244,1) 20%, rgba(199,121,244,1) 45%, rgba(134,20,200,1) 45%, rgba(134,20,200,1) 100%);
 }
 
 .circles-block {
@@ -243,5 +243,35 @@ export default {
 
 .circles-block div:nth-child(2n+1) {
     background-color: #B0BEC5;
+}
+
+@media (max-width: 1300px){
+    .t-content{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .t-content .block-diagram{
+        grid-column: 1/1;
+        grid-row: 2/2;
+        width: 100%;
+    }
+
+    .d-col{
+        grid-column: 1/1;
+        grid-row: 1/1;
+        width: 100%;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .d-col-elem{
+        display: grid;
+        grid-template-columns: 200pt auto;
+        justify-items: center;
+    }
+
+    .cylinders-block{
+        width: max-content;
+    }
 }
 </style>

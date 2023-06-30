@@ -31,6 +31,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+.header-right{
+    display: flex;
+    gap: 10px;
+}
 
+.header-right select{
+    border-radius: 20px;
+    background-color: #cfd8dc;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-right: 10px solid transparent;
+}
 </style>
