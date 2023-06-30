@@ -14,8 +14,6 @@
                     <select>
                         <option>THIS WEEK</option>
                     </select>
-<!--                    <div>THIS WEEK</div>-->
-<!--                    <img src="/assets/image/arrowDrop.svg">-->
                 </div>
             </div>
             <canvas name="chart"></canvas>
