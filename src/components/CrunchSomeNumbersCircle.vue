@@ -19,7 +19,7 @@
                             <div class="desc-content">Working Hours</div>
                         </div>
                     </div>
-                    <div class="block-chart">
+                    <div class="block-chart" style="max-height: 450px;">
                         <span id="max-text-circe">{{ getMax }}<br>Working Hours</span>
                         <canvas name="chart1"></canvas>
                     </div>
@@ -134,10 +134,10 @@ export default {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
                 cutout: '75%',
                 layout: {
-                    padding: 40,
+                    padding: 20,
                 },
             }
         })
@@ -282,7 +282,7 @@ export default {
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: max-content;
+    height: 100%;
     max-height: 700px;
     display: flex;
     flex-direction: column;
@@ -299,7 +299,7 @@ export default {
     /*justify-content: center;*/
     align-items: center;
     flex-direction: column;
-    //padding-block: 15px;
+    /*padding-block: 15px;*/
     padding-block: 30px 15px;
 }
 
@@ -329,6 +329,7 @@ export default {
 }
 
 #max-text-circe {
+    font-size: 1.4em;
     position: absolute;
     text-align: center;
     top: 50%;
@@ -336,7 +337,7 @@ export default {
     transform: translate(-50%, -50%);
 }
 
-@media (max-width: 1300px){
+@media (max-width: 1400px){
     .container-cards{
         flex-direction: column;
     }
@@ -354,13 +355,24 @@ export default {
         padding-top: 50px;
     }
 
+    .card-block{
+        min-height: 660px;
+    }
+
     .view-avatar{
         width: 250px;
         height: 250px;
     }
 
-    #max-text-circe{
-        font-size: 20pt;
+    .t-content{
+        padding-top: 0px;
     }
+
+    /*#max-text-circe{*/
+    /*    font-size: 20pt;*/
+    /*}*/
 }
+
+
+
 </style>

@@ -278,4 +278,16 @@ export default {
         width: max-content;
     }
 }
+
+
+@media (max-width: 600px){
+    .d-col-elem{
+        grid-template-columns: 1fr;
+        grid-template-rows: 60pt 1fr;
+    }
+
+    .d-col-elem > div:nth-child(2){
+        padding-bottom: 20px;
+    }
+}
 </style>

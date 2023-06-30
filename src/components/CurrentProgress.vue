@@ -13,7 +13,7 @@
                         <div class="desc-content">{{ item.desc }}</div>
                     </div>
                     <div class="last-time">{{ item.lastTime }}</div>
-                    <span style="color: #BCC7D3;">|</span>
+                    <span id="brake-elem" style="color: #BCC7D3;">|</span>
                     <div class="block-info">
                         <div>
                             <img src="/assets/image/clock.png">
@@ -137,7 +137,7 @@ export default {
     align-items: center;
     justify-content: center;
     padding-inline: 45px 10px;
-    //border-left: 1px solid #BCC7D3;
+    /*border-left: 1px solid #BCC7D3;*/
 }
 
 .block-info > div {
@@ -153,7 +153,7 @@ export default {
 }
 
 .progress-block {
-    //min-width: 150px;
+    /*min-width: 150px;*/
     width: 80%;
     background-color: #cfd8dc;
     height: 10px;
@@ -164,5 +164,20 @@ export default {
     height: 100%;
     background-color: #51c814;
     border-radius: 15px;
+}
+
+@media (max-width: 800px){
+    .item-block{
+        grid-template-columns: 60px 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .block-info{
+        grid-column: 2/2;
+    }
+
+    #brake-elem{
+        display: none;
+    }
 }
 </style>

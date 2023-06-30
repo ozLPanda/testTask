@@ -1,6 +1,8 @@
 <template>
     <div class="t-main-block">
+        <!-- Логотип компании в левом верхнем углу -->
         <div class="logo-company"><span id="just">@just</span><span id="free">Free</span></div>
+        <!-- Шапка -->
         <div class="block-header">
             <div class="block-search">
                 <img :src="defIconRoute + 'magnifying-glass.png'">
@@ -18,16 +20,23 @@
                 <div class="profile-avatar"></div>
             </div>
         </div>
-        <div class="block-menu">
-            <div
-                :class="['menu-row', {'menu-row-active': isActive(item.id)}]"
-                @click="this.activeRow = item.id"
-                v-for="item in menuRows"
-            >
-                <img :src="setRouteIconMenu(item.icon)">
-                <div>{{ item.title }}</div>
+        <!-- Менюшка -->
+        <div :class="['block-menu', {'showed_menu': visibleMenu}]">
+            <div style="height: 100%;position: relative;">
+                <div class="block-control" @click="toggleMenu()">
+                    <span>{{ getStatusMenu }}</span>
+                </div>
+                <div
+                    :class="['menu-row', {'menu-row-active': isActive(item.id)}]"
+                    @click="this.activeRow = item.id"
+                    v-for="item in menuRows"
+                >
+                    <img :src="setRouteIconMenu(item.icon)">
+                    <div>{{ item.title }}</div>
+                </div>
             </div>
         </div>
+        <!-- Контент -->
         <LayoutBaseBlockContent>
             <template v-slot:content>
                 <WayvyLines
@@ -69,6 +78,7 @@ export default {
             ],
             notification_count: 8,
             activeRow: 1,
+            visibleMenu: false,
         }
     },
     methods: {
@@ -78,6 +88,9 @@ export default {
         isActive(id) {
             return id == this.activeRow ? true : false
         },
+        toggleMenu(){
+            this.visibleMenu = this.visibleMenu === true ? false : true
+        }
     },
     computed: {
         week(){
@@ -108,6 +121,9 @@ export default {
                 }
             ]
         },
+        getStatusMenu(){
+            return this.visibleMenu === true ? '<' : '>'
+        }
     }
 }
 </script>
@@ -241,4 +257,52 @@ export default {
 .menu-row-active {
     background-color: var(--base-background-menu-row-active) !important;
 }
+
+.block-control{
+    position: absolute;
+    display: none;
+    right: -1.9em;
+    padding: 15px;
+    border-radius: 0px 10px 10px 0px;
+    font-size: 16pt;
+    color: white;
+    background-color: var(--base-background-menu-row);
+}
+
+.showed_menu{
+    margin-left: 12.5em !important;
+}
+
+@media (max-width: 1100px){
+    .t-main-block{
+        position: relative;
+    }
+
+    .d-center{
+        grid-column: 1/3;
+    }
+
+    .block-control{
+        display: block;
+    }
+
+    .block-menu{
+        z-index: 2;
+        position: absolute;
+        left: -12.5em;
+        top: 70px;
+        transition: .5s margin;
+    }
+}
+
+@media (max-width: 650px){
+    .logo-company{
+        display: none;
+    }
+
+    .block-header{
+        grid-column: 1/3;
+    }
+}
+
 </style>
