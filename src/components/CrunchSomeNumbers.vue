@@ -174,6 +174,8 @@ export default {
 .block-diagram {
     grid-column: 2/2;
     width: 100%;
+    height: 540px;
+    overflow: hidden;
 }
 
 .d-col-elem{

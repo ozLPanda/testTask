@@ -88,7 +88,9 @@ export default {
                 barPercentage: 0.4,
                 layout: {
                     padding: 10
-                }
+                },
+                // responsive: true,
+                maintainAspectRatio: false,
             }
         })
     }
@@ -108,5 +110,6 @@ export default {
     height: 100%;
     display: flex;
     align-items: center;
+    position: relative;
 }
 </style>

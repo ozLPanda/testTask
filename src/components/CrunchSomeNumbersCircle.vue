@@ -72,9 +72,11 @@
                             <div class="desc-content">I need Dollars</div>
                         </div>
                     </div>
-                    <div class="title-chart">$14,220</div>
-                    <div class="block-chart" style="display: flex;align-items: center;">
-                        <canvas name="chart2"></canvas>
+                    <div style="width: 100%;height: 100%;position: relative;display: flex;align-items: center;justify-content: center">
+                        <div class="title-chart">$14,220</div>
+                        <div class="block-chart" style="display: flex;align-items: center;height: 250px;">
+                            <canvas name="chart2"></canvas>
+                        </div>
                     </div>
                     <div id="block-custom-href2">
                         <div style="padding-inline: 20px;padding-block: 0px 20px;">
@@ -131,6 +133,8 @@ export default {
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: true,
                 cutout: '75%',
                 layout: {
                     padding: 40,
@@ -154,6 +158,8 @@ export default {
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 elements:{
                     point:{
 
@@ -198,7 +204,7 @@ export default {
 .title-chart{
     font-size: 20pt;
     position: absolute;
-    top: 15%;
+    top: 15px;
 }
 
 .elem-desc {
@@ -216,6 +222,7 @@ export default {
 
 .container-cards {
     display: flex;
+    height: 100%;
     gap: 20px;
 }
 
@@ -273,7 +280,10 @@ export default {
 
 .card-block {
     position: relative;
+    overflow: hidden;
     width: 100%;
+    height: max-content;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -289,7 +299,8 @@ export default {
     /*justify-content: center;*/
     align-items: center;
     flex-direction: column;
-    padding-block: 15px;
+    //padding-block: 15px;
+    padding-block: 30px 15px;
 }
 
 .profile-block {
@@ -313,6 +324,8 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #max-text-circe {
@@ -326,6 +339,28 @@ export default {
 @media (max-width: 1300px){
     .container-cards{
         flex-direction: column;
+    }
+
+    #block-custom-href2 > div{
+        padding-inline: 20px !important;
+        padding-block: 20px 20px !important;
+    }
+
+    #custom-href1{
+        padding-block: 15px;
+    }
+
+    .card-block:nth-child(3) .block-chart{
+        padding-top: 50px;
+    }
+
+    .view-avatar{
+        width: 250px;
+        height: 250px;
+    }
+
+    #max-text-circe{
+        font-size: 20pt;
     }
 }
 </style>
