@@ -37,7 +37,6 @@
                 <CrunchSomeNumbers/>
                 <CurrentProgress/>
                 <CrunchSomeNumbersCircle/>
-<!--                <EmptyElement/>-->
             </template>
         </LayoutBaseBlockContent>
     </div>
