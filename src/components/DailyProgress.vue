@@ -2,12 +2,13 @@
     <div class="content-block">
         <div class="header-body-content">
             <div>
-                <div class="title-content">Wavy Lines</div>
+                <div class="title-content">Daily Progress</div>
                 <div class="desc-content">Working Hours</div>
             </div>
             <div id="week-control">
-                <div>THIS WEEK</div>
-                <img src="/assets/image/arrowDrop.svg">
+                <select>
+                    <option>THIS WEEK</option>
+                </select>
             </div>
         </div>
         <div class="diagram-block">

@@ -11,8 +11,11 @@
                     <div class="desc-content">Working Hours</div>
                 </div>
                 <div id="week-control">
-                    <div>THIS WEEK</div>
-                    <img src="/assets/image/arrowDrop.svg">
+                    <select>
+                        <option>THIS WEEK</option>
+                    </select>
+<!--                    <div>THIS WEEK</div>-->
+<!--                    <img src="/assets/image/arrowDrop.svg">-->
                 </div>
             </div>
             <canvas name="chart"></canvas>

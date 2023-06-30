@@ -176,14 +176,16 @@ export default {
     width: 100%;
 }
 
-.d-col-elem {
+.d-col-elem{
     overflow: hidden;
     text-align: center;
     display: grid;
     grid-template-columns: 120pt 150pt;
-    grid-template-rows: 170px;
-    padding: 10px 0px;
-    border-block: 1px solid rgba(188, 199, 211, 0.4);
+    grid-template-rows: 1fr;
+    /* padding: 10px 0px; */
+    width: 100%;
+    border: 1px solid rgba(188, 199, 211, 0.4);
+    height: 100%;
 }
 
 .elem-title {
