@@ -13,9 +13,13 @@
                     <img :src="defIconRoute + 'notification.png'">
                     <span class="circle-notify">{{ notification_count }}</span>
                 </div>
-                <div class="profile-name">
+                <div class="profile-name noselect" @click.native="profileDrop = profileDrop == true ? false : true">
                     <div>Filip J.</div>
-                    <img :src="defIconRoute + 'arrowDrop.svg'">
+                    <img :class="[{'arrow-drop': profileDrop}]" :src="defIconRoute + 'arrowDrop.svg'">
+                    <div :class="['drop-menu', {'show-drop': profileDrop}]">
+                        <div>Profile</div>
+                        <div>Logout</div>
+                    </div>
                 </div>
                 <div class="profile-avatar"></div>
             </div>
@@ -79,6 +83,7 @@ export default {
             notification_count: 8,
             activeRow: 1,
             visibleMenu: false,
+            profileDrop: false,
         }
     },
     methods: {
@@ -129,6 +134,34 @@ export default {
 </script>
 
 <style scoped>
+.drop-menu{
+    position: absolute;
+    top: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: .2s top, .25s opacity;
+    opacity: 0;
+}
+
+.drop-menu > div{
+    padding: 10px;
+    background-color: var(--background-header);
+    border-bottom: 1px solid #A1B1C2;
+    cursor: pointer;
+    transition: .3s background-color;
+}
+
+.show-drop{
+    top: 2.7em;
+    opacity: 1;
+    //display: flex;
+}
+
+.drop-menu > div:hover{
+    background-color: #f8f8f8;
+}
+
 .logo-company {
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -183,11 +216,13 @@ export default {
 }
 
 .profile-name {
+    position: relative;
     border-left: 2px solid #A1B1C2;
     display: flex;
     align-items: center;
     gap: 10px;
     padding-inline: 10px;
+    cursor: pointer;
 }
 
 .profile-name > div {
